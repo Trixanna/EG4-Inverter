@@ -134,7 +134,7 @@ class EG4InverterBinarySensor(EG4BaseBinarySensor):
         try:
             raw_value = getattr(data, self._sensor_def["key"])
         except Exception as e:
-            _LOGGER.error(f"Error accessing attribute '{self._sensor_def['key']}' on data: {e}")
+            _LOGGER.debug(f"Error accessing attribute '{self._sensor_def['key']}' on data: {e}")
             raw_value = data.get(self._sensor_def["key"], False)
 
         calc_func = self._sensor_def.get("calc")
